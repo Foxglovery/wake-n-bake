@@ -34,17 +34,17 @@ export const writeRecipeLog = (
   });
 };
 
-// Example usage:
-writeRecipeLog(
-  "recipeId1",
-  "2025-01-01",
-  {
-    employeeId: 1,
-    quantity: 150,
-  },
-  1,
-  "Chocolate Chip Cookies"
-);
+// // Example usage:
+// writeRecipeLog(
+//   "recipeId1",
+//   "2025-01-01",
+//   {
+//     employeeId: 1,
+//     quantity: 150,
+//   },
+//   1,
+//   "Chocolate Chip Cookies"
+// );
 
 // Reading a specific recipe log
 export const readRecipeLog = (recipeId, callback) => {

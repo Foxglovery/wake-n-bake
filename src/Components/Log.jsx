@@ -3,16 +3,19 @@ import { readRecipeLog } from '../firebase/firebase';
 
 
 function Log() {
-const [ data, setData ] = useState({})
+const [ database, setDatabase ] = useState([])
     useEffect(() => {
         // Example usage:
 readRecipeLog("recipeId1", (data) => {
     console.log(data); // Logs the recipe data
-    setData(data);
+    setDatabase(data);
   });
-    })
+    },[])
   return (
-    <div>{data}</div>
+    <div>
+        <p>Here are the batches that have been baked</p>
+        
+        </div>
   )
 }
 
