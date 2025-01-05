@@ -1,65 +1,18 @@
+// firebaseConfig.js
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, onValue } from "firebase/database";
+import { getDatabase } from "firebase/database";
 
-// Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDivNnSTZ6qnYdvJUcF1Mc9wfsGLDMgqg0",
-  authDomain: "wake-n-bake-8ba79.firebaseapp.com",
-  databaseURL: "https://wake-n-bake-8ba79-default-rtdb.firebaseio.com",
-  projectId: "wake-n-bake-8ba79",
-  storageBucket: "wake-n-bake-8ba79.firebasestorage.app",
-  messagingSenderId: "793211320445",
-  appId: "1:793211320445:web:7b0078349244ca538ad914",
-  measurementId: "G-99SPJ7V66T",
+  apiKey: "AIzaSyDkhfyYJHDP-M7C3iGo2ll1o30UoloWnhY",
+  authDomain: "wake-n-bake-react.firebaseapp.com",
+  projectId: "wake-n-bake-react",
+  storageBucket: "wake-n-bake-react.firebasestorage.app",
+  messagingSenderId: "773390963838",
+  appId: "1:773390963838:web:078f19116b68c3ca04342f",
+  measurementId: "G-5WNLTRDV52",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+const db = getDatabase(app);
 
-// Writing a new recipe log to the database
-export const writeRecipeLog = (
-  recipeId,
-  dateMade,
-  dosages,
-  employeeId,
-  recipeName
-) => {
-  set(ref(database, "recipeLogs/" + recipeId), {
-    dateMade,
-    dosages,
-    employeeId,
-    name: recipeName,
-    recipeId,
-  });
-};
-
-// // Example usage:
-// writeRecipeLog(
-//   "recipeId1",
-//   "2025-01-01",
-//   {
-//     employeeId: 1,
-//     quantity: 150,
-//   },
-//   1,
-//   "Chocolate Chip Cookies"
-// );
-
-// Reading a specific recipe log
-export const readRecipeLog = (recipeId, callback) => {
-  const recipeRef = ref(database, "recipeLogs/" + recipeId);
-  onValue(recipeRef, (snapshot) => {
-    const data = snapshot.val();
-    callback(data); // Pass data to callback
-  });
-};
-
-// // Read data from the database
-// export const readData = (userId, callback) => {
-//   const userRef = ref(database, "users/" + userId);
-//   onValue(userRef, (snapshot) => {
-//     const data = snapshot.val();
-//     callback(data); // Pass data to callback
-//   });
-// };
+export { db };

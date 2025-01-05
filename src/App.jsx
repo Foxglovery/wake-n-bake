@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
-import Log from "./Components/Log";
+import RecipeBatchList from "./Components/RecipeBatchList";
+
+
 
 function App() {
  
 
   return (
     <div>
-      <Log />
+      <RecipeBatchList />
     </div>
   );
 }
 
 export default App;
+
